@@ -17,7 +17,6 @@ public class ControladorEjercicios {
 			ret+="Es impar el " + numero;
 		}
 		
-		
 		return "<h1>"+ ret +"</h1>";
 	}
 
