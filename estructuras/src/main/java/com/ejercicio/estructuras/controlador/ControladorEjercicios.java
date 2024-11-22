@@ -19,7 +19,7 @@ public class ControladorEjercicios {
 
 		return "<h1>"+ ret +"</h1>";
 	}
-	
+
 	@PostMapping("/tablaMultiplicar")
 	public String ejercicio2(@RequestParam int numero ) {
 		String ret = "";
@@ -31,6 +31,28 @@ public class ControladorEjercicios {
 		
 		return "<h1>"+ ret +"</h1>";
 		
+	}
+	
+	@PostMapping("/promedioCalificaciones")
+	public String ejercicio3(@RequestParam String calificaciones ) {
+		String ret = "";
+		double promedio = 0.0;
+		String[] notas = calificaciones.split(",");
+		double suma = 0;
+		
+		for (String nota: notas) {
+			suma += Double.parseDouble(nota.trim());
+		}
+		
+		promedio = suma / notas.length;
+		
+		if (promedio >= 5) {
+			ret += "El promedio del usuario es " + promedio + " por lo tanto está aprobado."; 
+		}else {
+			ret += "El promedio del usuario es " + promedio + " por lo tanto está suspendido.";
+		}
+		
+		return "<h1>"+ ret +"</h1>";
 	}
 }
 	
