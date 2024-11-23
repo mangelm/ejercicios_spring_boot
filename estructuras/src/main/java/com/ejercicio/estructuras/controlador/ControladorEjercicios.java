@@ -110,5 +110,16 @@ public class ControladorEjercicios {
 		
 		return "<h1>"+ ret +"</h1>";
 	}
+
+	@PostMapping("/sumatoria")
+	public String ejercicio7(@RequestParam int numero ) {
+		int resultado = 0;
+		
+	 for (int i = 1; i <= numero; i++) { 
+	        resultado += i;
+	    }
+		
+		return "<h1>"+ "El resultado de la suma acumulativa de " + numero + " es "+ resultado  +"</h1>";
+	}
 }
 	
