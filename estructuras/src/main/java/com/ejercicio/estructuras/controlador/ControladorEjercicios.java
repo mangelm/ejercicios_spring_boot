@@ -1,5 +1,7 @@
 package com.ejercicio.estructuras.controlador;
 
+import java.security.SecureRandom;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -8,13 +10,22 @@ import org.springframework.web.bind.annotation.RestController;
 public class ControladorEjercicios {
 	
 	
-	@PostMapping("/parImpar")
-	public String ejercicio1(@RequestParam int numero ) {
+	@PostMapping("/generarContrasena")
+	public String ejercicio6(@RequestParam int longitud ) {
 		String ret = "";
-		if(numero % 2 == 0) {
-			ret+="Es par el " + numero;
+		String Caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
+		String contrasena = "";
+		if(longitud <= 0) {
+			ret+="La longitud debe ser mayor que 0";
 		}else {
-			ret+="Es impar el " + numero;
+			SecureRandom random = new SecureRandom();
+			
+			for (int i = 0; i < longitud; i++) {
+				int index = random.nextInt(Caracteres.length());
+				contrasena += Caracteres.charAt(index);
+			}
+			
+			ret += "Tu contraseña random es:" + contrasena ;
 		}
 		
 		
