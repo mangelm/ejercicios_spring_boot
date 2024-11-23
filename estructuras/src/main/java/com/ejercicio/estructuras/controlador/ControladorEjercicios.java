@@ -8,15 +8,23 @@ import org.springframework.web.bind.annotation.RestController;
 public class ControladorEjercicios {
 	
 	
-	@PostMapping("/parImpar")
-	public String ejercicio1(@RequestParam int numero ) {
+	@PostMapping("/calcularIMC")
+	public String ejercicio4(@RequestParam double peso, double altura ) {
 		String ret = "";
-		if(numero % 2 == 0) {
-			ret+="Es par el " + numero;
-		}else {
-			ret+="Es impar el " + numero;
-		}
 		
+		double imc = peso / (altura * altura);
+		
+		
+		if (imc < 18.5) {
+			//Formatear solo para 2 decimales
+			ret = String.format("%.2f: Bajo Peso", imc);
+		}else if ( imc >= 18.5 && imc <= 24.9) {
+			ret = String.format("%.2f: Peso Saludable", imc); 
+		}else if ( imc >= 25 && imc <= 29.9) {
+			ret = String.format("%.2f: Sobrepeso", imc);
+		}else if( imc >= 30) {
+			ret = String.format("%.2f: Obesidad", imc);
+		}
 		
 		return "<h1>"+ ret +"</h1>";
 	}
