@@ -8,15 +8,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class ControladorEjercicios {
 	
 	
-	@PostMapping("/parImpar")
-	public String ejercicio1(@RequestParam int numero ) {
+	@PostMapping("/encuesta")
+	public String ejercicio5(@RequestParam int satisfaccion ) {
 		String ret = "";
-		if(numero % 2 == 0) {
-			ret+="Es par el " + numero;
-		}else {
-			ret+="Es impar el " + numero;
-		}
 		
+		ret = "Su respuesta es: " + satisfaccion + " Gracias por su tiempo.";
 		
 		return "<h1>"+ ret +"</h1>";
 	}
