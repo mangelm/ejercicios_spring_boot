@@ -8,17 +8,15 @@ import org.springframework.web.bind.annotation.RestController;
 public class ControladorEjercicios {
 	
 	
-	@PostMapping("/parImpar")
-	public String ejercicio1(@RequestParam int numero ) {
-		String ret = "";
-		if(numero % 2 == 0) {
-			ret+="Es par el " + numero;
-		}else {
-			ret+="Es impar el " + numero;
-		}
+	@PostMapping("/sumatoria")
+	public String ejercicio7(@RequestParam int numero ) {
+		int resultado = 0;
 		
+	 for (int i = 1; i <= numero; i++) { 
+	        resultado += i;
+	    }
 		
-		return "<h1>"+ ret +"</h1>";
+		return "<h1>"+ "El resultado de la suma acumulativa de " + numero + " es "+ resultado  +"</h1>";
 	}
 
 }
