@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+
 @RestController
 public class ControladorEjercicios {
 	
@@ -72,6 +73,16 @@ public class ControladorEjercicios {
 		}else if( imc >= 30) {
 			ret = String.format("%.2f: Obesidad", imc);
 		}
+		
+		return "<h1>"+ ret +"</h1>";
+	}
+	
+	@PostMapping("/encuesta")
+	public String ejercicio5(@RequestParam int satisfaccion) {
+		String ret = "";
+		
+		ret = "Su respuesta es: " + satisfaccion + " Gracias por su respuesta." ;
+		
 		
 		return "<h1>"+ ret +"</h1>";
 	}
